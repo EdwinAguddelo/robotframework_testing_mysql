@@ -2,21 +2,21 @@
 Library         OperatingSystem
 Library         DatabaseLibrary
 Library         DateTime
-Resource        ../resources/mysql_connection.resource
+Resource        ../resources/connection_database.resource
 
-Suite Setup     Connect to databaseMysql
+Suite Setup     Connect to database origen
 Suite Teardown      Disconnect From Database
 
 *** Variables ***
-${inc_price}        7
+${employee_id}        2
 
 *** Test Cases ***
 the trigger should save the update in the update_products table
     
-    ${output}   Execute Sql String   update products set price = price + ${inc_price} where article_id = 'AR01';
+    ${output}   Execute Sql String   UPDATE employees SET last_name = 'Brown' WHERE ID = 2;
     should be equal as strings  ${output}   None
-    ${query}    query   SELECT (new_price - old_price) as diff_price ,modification_date FROM mydb.update_products where old_article_id = 'AR01' order by modification_date desc;
-    should be equal as integers     ${query[0][0]}     ${inc_price}         
+    ${query}    query   SELECT employee_id FROM public.employee_audits WHERE employee_id = 2;
+    should be equal as integers     ${query[0][0]}     ${employee_id}
           
 
     

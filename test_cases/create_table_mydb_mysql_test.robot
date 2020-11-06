@@ -1,9 +1,9 @@
 *** Settings ***
 Library         OperatingSystem
 Library         DatabaseLibrary
-Resource        ../resources/mysql_connection.resource
+Resource        ../resources/connection_database.resource
 
-Suite Setup     Connect to databaseMysql
+Suite Setup         Connect to database origen
 Suite Teardown      Disconnect From Database
 
 *** Test Cases ***
