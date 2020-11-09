@@ -8,7 +8,8 @@ ${DBUser}       datical
 ${DBPass}       admin
 ${DBHost}       127.0.0.1
 ${DBPort}       5432
-@{JDBC DRIVERS}        ${EXECDIR}${/}resources${/}ojdbc10.jar
+${script_sql}       ./resources/test_data/ojdbc8.jar
+
 
 ${ORACLE DATABASE URL}          jdbc:oracle:thin:@localhost:1521:datical
 ${ORACLE DATABASE USER}         datical
@@ -19,7 +20,6 @@ ${ORACLE DATABASE DRIVER}       oracle.jdbc.driver.OracleDriver
 *** Keywords ***
 Connect to database origen
 
-    Connect To Database Using Custom Params    jaydebeapi     "oracle.jdbc.driver.OracleDriver", ["jdbc:oracle:thin:@localhost:1521:datical","datical","admin",@{JDBC DRIVERS} ]
-    log to console  ${output}
+    Connect To Database Using Custom Params    jaydebeapi    'oracle.jdbc.driver.OracleDriver','jdbc:oracle:thin:@DESKTOP-MMLHIU2:1521:orcl', ['datical', 'admin'],'${script_sql}'   
     should be equal as strings   ${output}    None
     [Return]    ${output}
