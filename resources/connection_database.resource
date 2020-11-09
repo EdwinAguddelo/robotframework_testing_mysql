@@ -20,6 +20,7 @@ ${ORACLE DATABASE DRIVER}       oracle.jdbc.driver.OracleDriver
 *** Keywords ***
 Connect to database origen
 
-    Connect To Database Using Custom Params    jaydebeapi    'oracle.jdbc.driver.OracleDriver','jdbc:oracle:thin:@DESKTOP-MMLHIU2:1521:orcl', ['datical', 'admin'],'${script_sql}'   
+    ${output}   Connect To Database Using Custom Params    jaydebeapi    'oracle.jdbc.driver.OracleDriver','jdbc:oracle:thin:@DESKTOP-MMLHIU2:1521:orcl', ['datical', 'admin'],'${script_sql}'   
+    log to console  ${output}
     should be equal as strings   ${output}    None
     [Return]    ${output}
