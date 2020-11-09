@@ -1,39 +1,25 @@
 *** Settings ***
-Library           DatabaseLibrary
-Library           OperatingSystem
-
+Library     DatabaseLibrary
+Library     OperatingSystem
 
 *** Variables ***
-${DB_CONNECT_STRING}    'datical/admin@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=DESKTOP-MMLHIU2)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCL)))'
+${DBName}       dvdrental
+${DBUser}       datical
+${DBPass}       admin
+${DBHost}       127.0.0.1
+${DBPort}       5432
+@{JDBC DRIVERS}        ${EXECDIR}${/}resources${/}ojdbc10.jar
+
+${ORACLE DATABASE URL}          jdbc:oracle:thin:@localhost:1521:datical
+${ORACLE DATABASE USER}         datical
+${ORACLE DATABASE PASSWORD}     admin
+${ORACLE DATABASE DRIVER}       oracle.jdbc.driver.OracleDriver
 
 
 *** Keywords ***
-Connect To DB
-    [Arguments]    ${DB_CONNECT_STRING_VALUE}
-    Set Environment Variable    PATH    D:\temporal\instantclient_19_6
-    Set Global Variable    ${DB_CONNECT_STRING_VALUE}
-    #Connect to DB
-    Connect To Database Using Custom Params  JayDeBeApi       'DB_CONNECT_STRING_VALUE', 'datical', 'datical', 'admin'
+Connect to database origen
 
-Run Query and log results
-    [Arguments]    ${QUERY_TO_EXECUTE}
-    Set Global Variable    ${QUERY_TO_EXECUTE}
-    ${queryResults}    Query    ${QUERY_TO_EXECUTE}
-    log to console    ${queryResults}
-
-Disconnect From DB
-    #Disconnect from DB
-    disconnect from database
-
-
-*** Test Cases ***
-Connecting
-  
-
-  Connect To DB 
-
-  
-  @{queryResults}  Query  select * from audits;
-
-  log to console  @{queryResults}
-
+    Connect To Database Using Custom Params    jaydebeapi     "oracle.jdbc.driver.OracleDriver", ["jdbc:oracle:thin:@localhost:1521:datical","datical","admin",@{JDBC DRIVERS}]
+    log to console  ${output}
+    should be equal as strings   ${output}    None
+    [Return]    ${output}
