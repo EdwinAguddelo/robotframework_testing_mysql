@@ -1,9 +1,9 @@
 *** Settings ***
 Library         OperatingSystem
 Library         DatabaseLibrary
-Resource        ../resources/mysql_connection.resource
+Resource        ../resources/sqlserver_connection.resource
 
-Suite Setup     Connect to databaseMysql
+Suite Setup     Connect to databaseSQLserver
 Suite Teardown      Disconnect From Database
 
 *** Test Cases ***
