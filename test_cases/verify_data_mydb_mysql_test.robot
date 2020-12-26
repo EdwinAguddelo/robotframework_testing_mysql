@@ -17,6 +17,6 @@
 | | table must exist            |  ORDERS 
 
 | Test nuevo                    | [Documentation] | check nuevo
-| | Row Count Is Equal To X     | SELECT ORDER_ID FROM ORDERS WHERE ORDER_ID = 105 | 0 | True
+| | Row Count Is Equal To X     | SELECT ORDER_ID FROM ORDERS  | 75 | True
 
 
