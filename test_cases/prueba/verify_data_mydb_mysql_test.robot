@@ -3,11 +3,6 @@
 
 | Library             | OperatingSystem
 | Library             | DatabaseLibrary
-| Resource            | ../resources/connection_database.resource
-
-
-| Suite Setup         | Connect to database origen
-| Suite Teardown      | Disconnect From Database
 
 
 | *** Test Cases ***            |                 |
