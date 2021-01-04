@@ -4,7 +4,6 @@
 | Library             | OperatingSystem
 | Library             | DatabaseLibrary
 
-
 | *** Test Cases ***            |                 |
 
 
@@ -13,5 +12,4 @@
 
 | Test nuevo                    | [Documentation] | check nuevo
 | | Row Count Is Equal To X     | SELECT ORDER_ID FROM ORDERS  | 75 | True
-
 

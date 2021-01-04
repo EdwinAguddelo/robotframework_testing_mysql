@@ -2,9 +2,6 @@
 Library     DatabaseLibrary
 Library     OperatingSystem
 
-*** Variables ***
-${DBUser}       
-
 
 
 *** Keywords ***
