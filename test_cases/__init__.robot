@@ -1,6 +1,6 @@
 | *** Settings ***    |
 | Resource            | ../resources/connection_database.resource
-| Library             | ../resources/prueba.py
+| Library             | ../resources/access_secrets.py
 
 
 | Suite Setup          | My NewSetupTest 
@@ -8,11 +8,11 @@
 
 
 | *** Variables ***   | 
-| ${DBPass}    
+| ${SecretName}
 
 
 *** Keywords ***
 
 My NewSetupTest 
     Connect to database origen
-    Prueba Para Llamado     ${DBPass}
+    Get Secret     ${SecretName}
