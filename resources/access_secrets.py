@@ -55,7 +55,6 @@ def get_secret(secret_name_params):
     # Depending on whether the secret is a string or binary, one of these fields will be populated.
         if 'SecretString' in get_secret_value_response:
             secret = get_secret_value_response['SecretString']
-            logger.console("Ingreso")
             resp_data = json.loads(secret)
             logger.console(resp_data['user'])
             logger.console(resp_data['password'])

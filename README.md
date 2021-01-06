@@ -26,3 +26,10 @@ robot --variable DBUser:datical --variable DBPass:admin test_cases\
 
 
 pruebas-base-de-datos
+
+# Manejo de tags
+
+
+
+robot --variable DBUser:datical --variable DBPass:admin  --variable SecretName:pruebas-base-de-datos 
+ test_cases\
