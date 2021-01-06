@@ -31,5 +31,4 @@ pruebas-base-de-datos
 
 
 
-robot --variable DBUser:datical --variable DBPass:admin  --variable SecretName:pruebas-base-de-datos 
- test_cases\
+robot --variable DBUser:datical --variable DBPass:admin  --variable SecretName:pruebas-base-de-datos test_cases\
