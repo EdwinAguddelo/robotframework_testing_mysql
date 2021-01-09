@@ -1,11 +1,14 @@
 | *** Settings ***    |
 
-
+| Resource            | ../resources/setup_test.resource
 | Library             | OperatingSystem
 | Library             | DatabaseLibrary
 
-| *** Test Cases ***            |                 |
+| Suite Setup         | My NewSetupTest
+| Suite Teardown      | Disconnect From Database
 
+
+| *** Test Cases ***            |                 |
 
 | Empty Employees List          | [Documentation] | check person table exists in mydb database
 | | table must exist            |  ORDERS 
