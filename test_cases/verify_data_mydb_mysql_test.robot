@@ -2,9 +2,9 @@
 
 Library     OperatingSystem
 Library         DatabaseLibrary
-Resource        ../resources/mysql_connection.resource
+Resource        ../resources/db_connection.resource
 
-Suite Setup     Connect to databaseMysql
+Suite Setup     Db connection
 Suite Teardown      Disconnect From Database
 
 
