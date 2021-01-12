@@ -131,3 +131,7 @@ dmypy.json
 # reports
 *.html
 *.xml
+
+#robotframework
+*.cfg
+db_connection.resource
