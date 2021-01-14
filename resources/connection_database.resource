@@ -5,6 +5,7 @@ Library     OperatingSystem
 
 *** Keywords ***
 Connect to database origen
+    Get Secret     pruebas-base-de-datos  
     ${DBUser} =    Get Environment Variable    USER 
     ${DBPass} =    Get Environment Variable    PASSWORD
     ${output}   Connect To Database Using Custom Params    cx_Oracle    '${DBUser}/${DBPass}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=DESKTOP-MMLHIU2)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCL)))'
