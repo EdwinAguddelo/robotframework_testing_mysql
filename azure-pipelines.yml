@@ -1,0 +1,19 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+pool: pool-aws
+
+steps:
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'robot --variable enviroment:cloud test_cases\verify_data_mydb_mysql_test.robot'
+
+- task: CmdLine@2
+  inputs:
+    script: 'robot --variable enviroment:cloud test_cases\verify_data_mydb_mysql_test.robot'
