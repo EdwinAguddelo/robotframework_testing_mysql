@@ -29,8 +29,10 @@ def get_secret(aplicacion):
 # Call the assume_role method of the STSConnection object and pass the role
 # ARN and a role session name.
 # arn:aws:iam::874520149338:role/rol-acceso-a-s3-desde-ec2
+
+# Aqui va la cuenta
     assumed_role_object=sts_client.assume_role(
-        RoleArn="arn:aws:iam::874520149338:role/BCO-SR-ROL-EXECUTE-PERMISSIONS-DEV",
+        RoleArn="arn:aws:iam::874520149338:role/curiosity-database-client-qa",
         RoleSessionName="AssumeRoleSession1",
         DurationSeconds=1800
     )
