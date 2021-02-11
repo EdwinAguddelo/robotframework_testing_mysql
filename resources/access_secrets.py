@@ -51,7 +51,7 @@ def get_secret(aplicacion):
     )
     try:
         get_secret_value_response = client.get_secret_value(
-            SecretId=aplicacion+"qa-secretrds-CNXDATI"
+            SecretId=aplicacion+"-qa-secretrds-CNXDATI"
         )
     except ClientError as e:
         if e.response['Error']['Code'] == 'DecryptionFailureException':
